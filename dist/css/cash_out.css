@@ -1,0 +1,566 @@
+/*经纪商 兑入订单页面*/
+.cash-out {
+  width: 1200px;
+  height: 890px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #efefef;
+}
+/*操作日志*/
+.match-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
+}
+.match-mask .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.match-mask .wrap {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+.match-mask .wrap .modal {
+  float: left;
+  min-width: 470px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.match-mask .wrap .modal .model-header {
+  width: 100%;
+  height: 40px;
+  background: #fae3b3;
+  padding: 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.match-mask .wrap .modal .model-header > span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #181818;
+  float: left;
+}
+.match-mask .wrap .modal .model-header > i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("../images/icon/icon_popup_close.png") no-repeat;
+  float: right;
+  cursor: pointer;
+}
+.match-mask .wrap .modal .content {
+  width: 100%;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+}
+.match-mask .wrap .modal .content ul {
+  float: left;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 30px;
+}
+.match-mask .wrap .modal .content ul li {
+  position: relative;
+  clear: both;
+  float: left;
+  padding-top: 10px;
+}
+.match-mask .wrap .modal .content ul li:first-child {
+  padding-top: 0;
+}
+.match-mask .wrap .modal .content ul li:before {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  z-index: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+.match-mask .wrap .modal .content ul li .icon {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #e2e3e7;
+  border-radius: 50%;
+  position: relative;
+  float: left;
+  margin-right: 9px;
+  z-index: 10;
+  background-color: white;
+}
+.match-mask .wrap .modal .content ul li .icon > span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #e2e3e7;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.match-mask .wrap .modal .content ul li .text {
+  float: right;
+}
+.match-mask .wrap .modal .content ul li .text p {
+  line-height: 18px;
+}
+.match-mask .wrap .modal .content ul li .text p:first-child {
+  font-size: 14px;
+  color: #999999;
+}
+.match-mask .wrap .modal .content ul li .text p:nth-child(2) {
+  font-size: 12px;
+  color: #CFCFCF;
+}
+.match-mask .wrap .modal .content ul li.finish .icon {
+  border: 1px solid #fbcd6c;
+}
+.match-mask .wrap .modal .content ul li.finish .icon > span {
+  background: #fbcd6c;
+}
+.match-mask .wrap .modal .content ul li.finish .text p:first-child {
+  color: #FBCD6C;
+}
+.match-mask .wrap .modal .content ul li:last-child:before {
+  height: 22%;
+}
+.match-mask .wrap .modal .content .actCouponBtn {
+  display: block;
+  width: 90px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fbcd6c;
+  line-height: 36px;
+  text-align: center;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*兑出设置*/
+.set-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.set-mask .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.set-mask .modal {
+  width: 470px;
+  height: 262px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.set-mask .modal .model-header {
+  width: 100%;
+  height: 40px;
+  padding: 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fae3b3;
+}
+.set-mask .modal .model-header > span {
+  font-size: 14px;
+  float: left;
+  font-weight: bold;
+  color: #181818;
+}
+.set-mask .modal .model-header > i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("../images/icon/icon_popup_close.png") no-repeat;
+  float: right;
+  cursor: pointer;
+}
+.set-mask .modal .model-content {
+  width: 100%;
+  background-color: white;
+  padding: 20px 65px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.set-mask .modal .model-content .content {
+  width: 100%;
+  height: 100%;
+}
+.set-mask .modal .model-content .content .sms {
+  float: left;
+  margin-bottom: 20px;
+}
+.set-mask .modal .model-content .content .sms > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+}
+.set-mask .modal .model-content .content .sms .item {
+  height: 14px;
+  font-size: 12px;
+  float: left;
+  margin-right: 60px;
+}
+.set-mask .modal .model-content .content .sms .item > label {
+  float: left;
+}
+.set-mask .modal .model-content .content .sms .item > label .radio {
+  display: none;
+}
+.set-mask .modal .model-content .content .sms .item > label .radio:checked + i {
+  background: url("../images/icon/icon_dianji.png") no-repeat;
+  background-size: contain;
+  border: 0;
+}
+.set-mask .modal .model-content .content .sms .item > label i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #c3c3c3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.set-mask .modal .model-content .content .sms .item > span {
+  float: left;
+  color: #1E1E1E;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.set-mask .modal .model-content .content .verification-code {
+  width: 100%;
+  height: 36px;
+  clear: both;
+  margin-bottom: 19px;
+}
+.set-mask .modal .model-content .content .verification-code > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+  line-height: 36px;
+}
+.set-mask .modal .model-content .content .verification-code input {
+  outline: none;
+}
+.set-mask .modal .model-content .content .verification-code input:nth-child(2) {
+  width: 88px;
+  margin-left: 12px;
+  float: left;
+  line-height: 34px;
+}
+.set-mask .modal .model-content .content .verification-code .smsVerify {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fbcd6c;
+  border-radius: 8px;
+  float: right;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  cursor: pointer;
+}
+.set-mask .modal .model-content .content .verification-code .smsVerify[disabled] {
+  background-color: #DFDFDF;
+  color: #999999;
+}
+.set-mask .modal .model-content .content .mms-verification {
+  width: 100%;
+  height: 36px;
+  clear: both;
+  margin-bottom: 20px;
+}
+.set-mask .modal .model-content .content .mms-verification > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+  line-height: 36px;
+}
+.set-mask .modal .model-content .content .mms-verification input {
+  outline: none;
+  width: 210px;
+  height: 36px;
+  border: 1px solid #E2E3E7;
+  border-radius: 4px;
+  float: right;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.set-mask .modal .model-content .content .mms-verification input::-webkit-input-placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .mms-verification input::-ms-input-placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .mms-verification input::placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .btn {
+  text-align: center;
+}
+.set-mask .modal .model-content .content .btn input {
+  width: 120px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fbcd6c;
+  cursor: pointer;
+  outline: none;
+  margin: 0 10px;
+}
+.set-mask .modal .model-content .content .btn input:hover {
+  background: #fbcd6c;
+  color: #ffffff;
+}
+.set-mask .modal .model-content .content .btn input.active {
+  background: #fbcd6c;
+  color: #ffffff;
+}
+.main {
+  float: right;
+}
+.main .main-top {
+  width: 1030px;
+  height: 60px;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+          box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+}
+.main .main-top .top-content {
+  width: 970px;
+  height: 60px;
+  float: left;
+  font-size: 14px;
+  padding: 23px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main .main-top .top-content .content-left {
+  font-weight: bold;
+  color: #666666;
+  float: left;
+}
+.main .main-top .top-content .content-right {
+  float: right;
+  color: #999999;
+}
+.main .main-top .top-content .content-right span:last-child {
+  color: #FBCD6C;
+}
+.main .main-top .top-logout {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-left: 1px solid #EEF0F4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: right;
+  background: url("../images/icon/tab_logout.png") no-repeat center;
+}
+.main .main-warp {
+  width: 1030px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main .main-warp .title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1e1e;
+  line-height: 30px;
+}
+.main .main-warp .order-state {
+  width: 100%;
+  height: 192px;
+  background-color: white;
+  margin-top: 15px;
+  padding: 20px 20px 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main .main-warp .order-state .state-header {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 20px;
+}
+.main .main-warp .order-state .state-header .header-btn {
+  width: 249px;
+  height: 50px;
+  border: 1px solid #e2e3e7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+.main .main-warp .order-state .state-header .header-btn.active {
+  background: #fbcd6c;
+  border: 0;
+  color: white;
+}
+.main .main-warp .order-state .state-header .header-icon {
+  display: block;
+  width: 27px;
+  height: 27px;
+  background: url("../images/icon/icon_setting.png") no-repeat;
+  float: right;
+  cursor: pointer;
+}
+.main .main-warp .order-state .state {
+  width: 100%;
+  height: 36px;
+  clear: both;
+}
+.main .main-warp .order-state .state:first-child {
+  margin-bottom: 10px;
+}
+.main .main-warp .order-state .state > span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999999;
+  line-height: 34px;
+  float: left;
+}
+.main .main-warp .order-state .state select {
+  outline: none;
+  width: 160px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e1e1e;
+  padding-left: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #999999;
+  margin-left: 10px;
+  float: left;
+}
+.main .main-warp .order-state .state input {
+  outline: none;
+  width: 160px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #C1C1C1;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #C1C1C1;
+  margin-left: 20px;
+  float: left;
+}
+.main .main-warp .order-state .state input.query {
+  background: #fbcd6c;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+.main .main-warp .order-state .state input.export {
+  background: #68e3ab;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+.main .main-warp .order-state .state .add_gathering_order {
+  width: 156px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #fbcd6c;
+  color: #fbcd6c;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  float: left;
+  margin-left: 20px;
+}
+.main .main-warp .order-state .state .batch_add_order {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #fbcd6c;
+  color: #fbcd6c;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  float: left;
+  margin-left: 20px;
+}
+.main .main-warp .order-state .state:last-child {
+  margin-top: 10px;
+}
+.main .main-warp .order-state .state:last-child input {
+  float: left;
+  margin-left: 16px;
+  margin-right: 4px;
+}
+.main .main-warp .order-state .state:last-child input:nth-of-type(1) {
+  margin-left: 38px;
+}
+.main .main-warp .order-state .state:last-child input:last-child {
+  float: right;
+}
+.main .main-warp .order-content {
+  height: 550px;
+  margin-top: 10px;
+  background-color: white;
+}
+.layui-table-tool {
+  display: none;
+}

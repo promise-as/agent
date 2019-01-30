@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/index.css">
+
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="home">
+
+    <!--消息弹框-->
+    <div class="msg" v-if="isHasOrder" style="display: block">
+      <div class="msg-title">消息</div>
+      <div class="msg-content">
+        <div class="content">
+          <i class="content-icon"></i>
+          <div class="content-detail">
+            <p>订单 <span>{{order}}</span></p>
+            <p v-for="(item, index) in confirmOrPay"
+               v-if="msgRemindIndex === index"
+            >{{item.value}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <a class="logo" href="./index.html">NOWPAY</a>
+      <a class="sidebar-item"
+         v-for="(item,index) in sidebarNavList"
+         :class="index === 0?'sidebar-active':''"
+         :href="item.href"
+      >
+        <i :class="item.icon"></i>
+        <span>{{item.text}}</span>
+      </a>
+    </div>
+
+    <div class="main">
+      <div class="main-top">
+        <div class="top-content">
+          <div class="content-left">欢迎使用NOVOXPAY出入金系统！</div>
+          <div class="content-right">
+            <span id="zfk"></span>
+            <span id="watt"></span>
+            <span id="hms"></span>
+            <span>{{userName}}</span>
+          </div>
+        </div>
+        <a class="top-logout" href="./login.html"></a>
+      </div>
+      <div class="main-warp">
+        <div class="dear-user">
+          <div class="user-content">
+            <p>尊敬的代理商用户：</p>
+            <p>
+              NOVOXPAY欢迎您！上次登录时间：
+              <span id="lastZfk"></span>
+              <span id="lastHms"></span>
+            </p>
+          </div>
+        </div>
+        <!--汇率-->
+        <div class="cny">
+          <div class="cny-cnh">
+            <div class="item-title">
+              <span>人民币汇率</span>
+            </div>
+
+            <div class="cnh-item">
+              <i class="item-icon"></i>
+              <div class="item-text">
+                <p>兑入汇率</p>
+                <strong>6.97</strong>CNY
+              </div>
+            </div>
+
+            <div class="cnh-item">
+              <i class="item-icon"></i>
+              <div class="item-text">
+                <p>兑出汇率</p>
+                <strong>6.88</strong>CNY
+              </div>
+            </div>
+          </div>
+          <div class="cny-cnh">
+            <div class="item-title">
+              <span>马币汇率</span>
+            </div>
+
+            <div class="cnh-item">
+              <i class="item-icon"></i>
+              <div class="item-text">
+                <p>兑入汇率</p>
+                <strong>6.97</strong>CNY
+              </div>
+            </div>
+
+            <div class="cnh-item">
+              <i class="item-icon"></i>
+              <div class="item-text">
+                <p>兑出汇率</p>
+                <strong>6.88</strong>CNY
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script src="./js/index.js"></script>
+<script src="./js/read_cache.js"></script>
+<script src="./js/last_time.js"></script>
+

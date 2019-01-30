@@ -1,0 +1,149 @@
+/*经纪商 兑出订单详情页面*/
+.order-detail {
+  width: 1200px;
+  height: 735px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #efefef;
+}
+.main {
+  float: right;
+}
+.main .main-top {
+  width: 1030px;
+  height: 60px;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+          box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+}
+.main .main-top .top-content {
+  width: 970px;
+  float: left;
+  font-size: 14px;
+  padding: 23px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main .main-top .top-content .content-left {
+  font-weight: bold;
+  color: #666666;
+  float: left;
+}
+.main .main-top .top-content .content-right {
+  float: right;
+  color: #999999;
+}
+.main .main-top .top-content .content-right span:last-child {
+  color: #FBCD6C;
+}
+.main .main-top .top-logout {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-left: 1px solid #EEF0F4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: right;
+  background: url("../images/icon/tab_logout.png") no-repeat center;
+}
+.main .main-warp {
+  width: 1030px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+}
+.main .main-warp .header {
+  width: 990px;
+  float: left;
+  margin-bottom: 3px;
+}
+.main .main-warp .header span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1e1e;
+  line-height: 30px;
+  float: left;
+}
+.main .main-warp .header a {
+  display: block;
+  width: 59px;
+  height: 30px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fbcd6c;
+  cursor: pointer;
+  background: transparent;
+  float: right;
+  text-align: center;
+  line-height: 30px;
+}
+.main .main-warp .order {
+  width: 990px;
+  float: left;
+}
+.main .main-warp .order .order-item {
+  width: 490px;
+  background: #ffffff;
+  float: left;
+  margin-top: 10px;
+}
+.main .main-warp .order .order-item li {
+  height: 25px;
+  border-bottom: 1px solid #EFEFEF;
+  margin-bottom: 15px;
+  font-size: 14px;
+  margin-left: 54px;
+  margin-right: 54px;
+}
+.main .main-warp .order .order-item li em {
+  font-style: normal;
+  float: left;
+  margin-left: 20px;
+  color: #1E1E1E;
+}
+.main .main-warp .order .order-item li em.active {
+  color: #FBCD6C;
+}
+.main .main-warp .order .order-item li span {
+  font-style: normal;
+  display: block;
+  width: 120px;
+  float: left;
+  color: #999999;
+}
+.main .main-warp .order .order-item li:first-child {
+  width: 100%;
+  height: 39px;
+  background: rgba(250, 227, 179, 0.3);
+  border-bottom: 1px solid #FAE3B3;
+  margin-left: 0;
+  margin-right: 0;
+}
+.main .main-warp .order .order-item li:first-child span {
+  width: auto;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1e1e1e;
+  line-height: 38px;
+  margin-left: 15px;
+  border-bottom: 1px solid #434343;
+}
+.main .main-warp .order .order-item:nth-of-type(odd) {
+  margin-right: 10px;
+}
+.main .main-warp .order .order-item:last-child li:nth-child(2) i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: url("../images/icon/icon_vip.png") no-repeat;
+  float: left;
+  margin-left: 4px;
+}
+.main .main-warp .order .order-item:last-child li:nth-child(2) i:last-child {
+  background: url("../images/icon/icon_cer.png") no-repeat;
+}
