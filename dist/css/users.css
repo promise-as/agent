@@ -1,12 +1,12 @@
 /*经纪商 用户管理页面*/
-.match {
+.cash-out {
   width: 1200px;
-  height: 820px;
+  height: 890px;
   margin-left: auto;
   margin-right: auto;
   background: #efefef;
 }
-/*弹出框*/
+/*操作日志*/
 .match-mask {
   position: fixed;
   top: 0;
@@ -75,6 +75,7 @@
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  margin-bottom: 30px;
 }
 .match-mask .wrap .modal .content ul li {
   position: relative;
@@ -122,7 +123,7 @@
   margin: auto;
 }
 .match-mask .wrap .modal .content ul li .text {
-  float: left;
+  float: right;
 }
 .match-mask .wrap .modal .content ul li .text p {
   line-height: 18px;
@@ -161,6 +162,209 @@
   clear: both;
   margin-left: auto;
   margin-right: auto;
+}
+/*兑出设置*/
+.set-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.set-mask .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.set-mask .modal {
+  width: 470px;
+  height: 262px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.set-mask .modal .model-header {
+  width: 100%;
+  height: 40px;
+  padding: 13px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fae3b3;
+}
+.set-mask .modal .model-header > span {
+  font-size: 14px;
+  float: left;
+  font-weight: bold;
+  color: #181818;
+}
+.set-mask .modal .model-header > i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: url("../images/icon/icon_popup_close.png") no-repeat;
+  float: right;
+  cursor: pointer;
+}
+.set-mask .modal .model-content {
+  width: 100%;
+  background-color: white;
+  padding: 20px 65px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.set-mask .modal .model-content .content {
+  width: 100%;
+  height: 100%;
+}
+.set-mask .modal .model-content .content .sms {
+  float: left;
+  margin-bottom: 20px;
+}
+.set-mask .modal .model-content .content .sms > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+}
+.set-mask .modal .model-content .content .sms .item {
+  height: 14px;
+  font-size: 12px;
+  float: left;
+  margin-right: 60px;
+}
+.set-mask .modal .model-content .content .sms .item > label {
+  float: left;
+}
+.set-mask .modal .model-content .content .sms .item > label .radio {
+  display: none;
+}
+.set-mask .modal .model-content .content .sms .item > label .radio:checked + i {
+  background: url("../images/icon/icon_dianji.png") no-repeat;
+  background-size: contain;
+  border: 0;
+}
+.set-mask .modal .model-content .content .sms .item > label i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #c3c3c3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.set-mask .modal .model-content .content .sms .item > span {
+  float: left;
+  color: #1E1E1E;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: -3px;
+}
+.set-mask .modal .model-content .content .verification-code {
+  width: 100%;
+  height: 36px;
+  clear: both;
+  margin-bottom: 19px;
+}
+.set-mask .modal .model-content .content .verification-code > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+  line-height: 36px;
+}
+.set-mask .modal .model-content .content .verification-code input {
+  outline: none;
+}
+.set-mask .modal .model-content .content .verification-code input:nth-child(2) {
+  width: 88px;
+  margin-left: 12px;
+  float: left;
+  line-height: 34px;
+}
+.set-mask .modal .model-content .content .verification-code .smsVerify {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fbcd6c;
+  border-radius: 8px;
+  float: right;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  cursor: pointer;
+}
+.set-mask .modal .model-content .content .verification-code .smsVerify[disabled] {
+  background-color: #DFDFDF;
+  color: #999999;
+}
+.set-mask .modal .model-content .content .mms-verification {
+  width: 100%;
+  height: 36px;
+  clear: both;
+  margin-bottom: 20px;
+}
+.set-mask .modal .model-content .content .mms-verification > span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999999;
+  float: left;
+  margin-right: 12px;
+  line-height: 36px;
+}
+.set-mask .modal .model-content .content .mms-verification input {
+  outline: none;
+  width: 210px;
+  height: 36px;
+  border: 1px solid #E2E3E7;
+  border-radius: 4px;
+  float: right;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.set-mask .modal .model-content .content .mms-verification input::-webkit-input-placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .mms-verification input::-ms-input-placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .mms-verification input::placeholder {
+  color: #E2E3E7;
+}
+.set-mask .modal .model-content .content .btn {
+  text-align: center;
+}
+.set-mask .modal .model-content .content .btn input {
+  width: 120px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fbcd6c;
+  cursor: pointer;
+  outline: none;
+  margin: 0 10px;
+}
+.set-mask .modal .model-content .content .btn input:hover {
+  background: #fbcd6c;
+  color: #ffffff;
+}
+.set-mask .modal .model-content .content .btn input.active {
+  background: #fbcd6c;
+  color: #ffffff;
 }
 .main {
   float: right;
@@ -204,6 +408,7 @@
   background: url("../images/icon/tab_logout.png") no-repeat center;
 }
 .main .main-warp {
+  width: 1030px;
   padding: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -216,16 +421,53 @@
 }
 .main .main-warp .order-state {
   width: 100%;
-  height: 122px;
+  height: 192px;
   background-color: white;
   margin-top: 15px;
   padding: 20px 20px 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.main .main-warp .order-state .state-header {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 20px;
+}
+.main .main-warp .order-state .state-header .header-btn {
+  width: 249px;
+  height: 50px;
+  border: 1px solid #e2e3e7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+.main .main-warp .order-state .state-header .header-btn.active {
+  background: #fbcd6c;
+  border: 0;
+  color: white;
+}
+.main .main-warp .order-state .state-header .add-introduce {
+  width: 160px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: #FBCD6C;
+  margin-left: 31px;
+  margin-top: 7px;
+}
 .main .main-warp .order-state .state {
   width: 100%;
   height: 36px;
+  clear: both;
 }
 .main .main-warp .order-state .state:first-child {
   margin-bottom: 10px;
@@ -235,10 +477,11 @@
   font-weight: 500;
   color: #999999;
   line-height: 34px;
+  float: left;
 }
 .main .main-warp .order-state .state select {
   outline: none;
-  width: 156px;
+  width: 160px;
   height: 36px;
   border-radius: 8px;
   font-size: 14px;
@@ -249,20 +492,22 @@
           box-sizing: border-box;
   border: 1px solid #999999;
   margin-left: 10px;
+  float: left;
 }
 .main .main-warp .order-state .state input {
   outline: none;
-  width: 156px;
+  width: 160px;
   height: 36px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #1e1e1e;
+  color: #C1C1C1;
   padding-left: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 1px solid #999999;
+  border: 1px solid #C1C1C1;
   margin-left: 20px;
+  float: left;
 }
 .main .main-warp .order-state .state input.query {
   background: #fbcd6c;
@@ -276,8 +521,50 @@
   color: white;
   cursor: pointer;
 }
+.main .main-warp .order-state .state .add_gathering_order {
+  width: 156px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #fbcd6c;
+  color: #fbcd6c;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  float: left;
+  margin-left: 20px;
+}
+.main .main-warp .order-state .state .batch_add_order {
+  width: 160px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #fbcd6c;
+  color: #fbcd6c;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  float: left;
+  margin-left: 20px;
+}
+.main .main-warp .order-state .state:last-child {
+  margin-top: 10px;
+}
+.main .main-warp .order-state .state:last-child input {
+  float: left;
+  margin-left: 16px;
+  margin-right: 4px;
+}
+.main .main-warp .order-state .state:last-child input:nth-of-type(1) {
+  margin-left: 38px;
+}
+.main .main-warp .order-state .state:last-child input:last-child {
+  float: right;
+  margin-right: 10px;
+}
 .main .main-warp .order-content {
   height: 550px;
   margin-top: 10px;
   background-color: white;
+}
+.layui-table-tool {
+  display: none;
 }
