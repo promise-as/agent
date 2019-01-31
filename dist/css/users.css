@@ -563,6 +563,7 @@
   padding: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-top: 13px;
 }
 .set-mask .modal .model-content .content .service-group .item.active > .rate {
   display: block;

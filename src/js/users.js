@@ -41,7 +41,7 @@ var app = new Vue({
     ],
     userName: '张三',
 
-    orderIndex: 2,
+    orderIndex: 0,
     orderText: [
       '介绍人管理',
       '经纪商管理',
@@ -128,8 +128,13 @@ var app = new Vue({
       this.orderIndex = index
     },
 
-    addIntroduceHandle: function () {
-      this.isShowAdd = true
+    addIntroduceHandle: function (orderIndex) {
+      if(orderIndex === 0){
+        this.isShowAdd = true
+      }
+      if(orderIndex === 1){
+        location.href = './add_broker.html'
+      }
     },
     closeCashOutSet: function () {
       this.isShowAdd = false
