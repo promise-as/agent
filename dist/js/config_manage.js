@@ -1,6 +1,6 @@
 "use strict";
 
-/*代理商 兑入*/
+/*代理商 配置管理*/
 var app = new Vue({
   el: '#app',
   data: {
@@ -35,7 +35,15 @@ var app = new Vue({
     }],
     userName: '张三',
 
-    // 兑入订单
+    // 兑出设置
+    USDCNY: "USDCNY",
+    exchangeRate: '7.2', // 汇率
+
+    // 发邮件
+    isShowSendEmail: false,
+    // 发送成功
+    isShowSendSucceed: false,
+    // 日志
     matchOrderFinishData: [{
       title: '服务商（user2）确认已收款',
       zfk: '2018.08.03',
@@ -61,6 +69,29 @@ var app = new Vue({
       zfk: '2018.08.03',
       hms: '14:20:20'
     }],
-    finishIndex: 3 // 日志完成的步骤(从0开始)
+    finishIndex: 3, // 日志完成的步骤(从0开始)
+
+    // 兑出设置
+    cashOutSet: false,
+    setSucceed: false,
+    smsCode: '服务器一'
+  },
+
+  methods: {
+    submitSmsCode: function submitSmsCode() {
+      this.cashOutSet = false;
+      this.setSucceed = true;
+    },
+
+    addServer: function addServer() {
+      this.cashOutSet = true;
+    },
+    closeCashOutSet: function closeCashOutSet() {
+      this.cashOutSet = false;
+    },
+
+    closeSucceed: function closeSucceed() {
+      this.setSucceed = false;
+    }
   }
 });

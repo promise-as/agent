@@ -1,0 +1,174 @@
+/*经纪商 添加收款订单页面*/
+.order-detail {
+  width: 1200px;
+  height: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #efefef;
+  position: relative;
+}
+.main {
+  float: right;
+}
+.main .main-top {
+  width: 1030px;
+  height: 60px;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+          box-shadow: 0 0 7px 1px rgba(37, 35, 33, 0.06);
+}
+.main .main-top .top-content {
+  width: 970px;
+  height: 60px;
+  float: left;
+  font-size: 14px;
+  padding: 23px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main .main-top .top-content .content-left {
+  font-weight: bold;
+  color: #666666;
+  float: left;
+}
+.main .main-top .top-content .content-right {
+  float: right;
+  color: #999999;
+}
+.main .main-top .top-content .content-right span:last-child {
+  color: #FBCD6C;
+}
+.main .main-top .top-logout {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-left: 1px solid #EEF0F4;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: right;
+  background: url("../images/icon/tab_logout.png") no-repeat center;
+}
+.main .main-warp {
+  width: 1030px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+}
+.main .main-warp .header {
+  width: 990px;
+  float: left;
+  margin-bottom: 3px;
+}
+.main .main-warp .header span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e1e1e;
+  line-height: 30px;
+  float: left;
+}
+.main .main-warp .header input {
+  width: 160px;
+  height: 30px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fbcd6c;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  float: right;
+  outline: none;
+}
+.main .main-warp .order {
+  width: 100%;
+  float: left;
+}
+.main .main-warp .order .order-item {
+  width: 100%;
+  min-height: 390px;
+  background: #ffffff;
+  float: left;
+  margin-top: 10px;
+  padding-top: 59px;
+  padding-bottom: 27px;
+}
+.main .main-warp .order .order-item li {
+  height: 36px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  margin-left: 54px;
+  margin-right: 54px;
+}
+.main .main-warp .order .order-item li span {
+  font-style: normal;
+  display: block;
+  width: 120px;
+  float: left;
+  color: #999999;
+  line-height: 38px;
+}
+.main .main-warp .order .order-item li input {
+  width: 500px;
+  height: 36px;
+  border: 1px solid #e2e3e7;
+  border-radius: 8px;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+}
+.main .main-warp .order .order-item li .inquire {
+  width: 90px;
+  height: 36px;
+  background: #68e3ab;
+  border-radius: 8px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: white;
+}
+.main .main-warp .order .order-item li > textarea {
+  width: 500px;
+  height: 99px;
+  border: 1px solid #e2e3e7;
+  border-radius: 8px;
+  resize: none;
+  padding-top: 10px;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  margin-bottom: 40px;
+}
+.main .main-warp .order .order-item li .submit {
+  width: 92px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  color: #FBCD6C;
+  background: transparent;
+  cursor: pointer;
+  float: left;
+  margin-left: 174px;
+}
+.main .main-warp .order .order-item li .submit:hover {
+  background: #fbcd6c;
+  color: white;
+}
+.main .main-warp .order .order-item li .cancel {
+  width: 92px;
+  height: 36px;
+  border: 1px solid #fbcd6c;
+  border-radius: 8px;
+  color: #FBCD6C;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 20px;
+  float: left;
+}
+.main .main-warp .order .order-item li .cancel:hover {
+  background: #fbcd6c;
+  color: white;
+}

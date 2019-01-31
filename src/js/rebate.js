@@ -1,4 +1,4 @@
-/*经纪商 */
+/*代理商 */
 var app = new Vue({
   el: '#app',
   data: {

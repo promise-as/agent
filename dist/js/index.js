@@ -1,6 +1,6 @@
 "use strict";
 
-/*经纪商 首页*/
+/*代理商 首页*/
 var app = new Vue({
   el: '#app',
   data: {

@@ -1,4 +1,4 @@
-/*代理商 兑入*/
+/*代理商 配置管理*/
 var app = new Vue({
   el: '#app',
   data: {
@@ -41,7 +41,15 @@ var app = new Vue({
     ],
     userName: '张三',
 
-    // 兑入订单
+    // 兑出设置
+    USDCNY: "USDCNY",
+    exchangeRate: '7.2', // 汇率
+
+    // 发邮件
+    isShowSendEmail: false,
+    // 发送成功
+    isShowSendSucceed: false,
+    // 日志
     matchOrderFinishData: [
       {
         title: '服务商（user2）确认已收款',
@@ -75,5 +83,28 @@ var app = new Vue({
       },
     ],
     finishIndex: 3, // 日志完成的步骤(从0开始)
+
+    // 兑出设置
+    cashOutSet: false,
+    setSucceed: false,
+    smsCode: '服务器一',
+  },
+
+  methods: {
+    submitSmsCode: function () {
+      this.cashOutSet = false;
+      this.setSucceed = true
+    },
+
+    addServer: function () {
+      this.cashOutSet = true
+    },
+    closeCashOutSet: function () {
+      this.cashOutSet = false
+    },
+
+    closeSucceed: function () {
+      this.setSucceed = false
+    }
   }
 })

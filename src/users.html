@@ -52,9 +52,9 @@
       </div>
     </div>
 
-    <!--兑出设置弹框-->
-    <!--<div class="set-mask" v-show="cashOutSet">-->
-    <div class="set-mask" v-show="true">
+    <!--添加介绍人-->
+    <div class="add-introducer" v-show="isShowAdd">
+      <!--<div class="add-introducer" v-show="true">-->
       <div class="mask"></div>
       <div class="modal">
         <form action="#">
@@ -65,40 +65,110 @@
           <div class="model-content">
             <div class="content">
 
-              <div class="sms">
-                <span>*是否需要短信验证：</span>
-                <div class="item">
-                  <label for="server1" @click="needSmsVerify">
-                    <input type="radio" id="server1"
-                           class="radio" name="ser" checked="checked">
+              <div class="user-name">
+                <span>*用户名：</span>
+                <input type="text"
+                       v-model="addIntroducer.userName">
+                <input type="button" value="查询"/>
+              </div>
+
+              <div class="name">
+                <span>*名称：</span>
+                <input type="text"
+                       v-model="addIntroducer.name">
+              </div>
+
+              <div class="phone">
+                <span>*电话：</span>
+                <input type="text"
+                       v-model="addIntroducer.phone">
+              </div>
+
+              <div class="procedure-fee">
+                <span>*手续费获比：</span>
+                <input type="text"
+                       v-model="addIntroducer.procedureFee">
+                <em>%</em>
+
+                <div class="status">
+                  <span>*状态：</span>
+                  <div class="item">
+                    <label for="server1">
+                      <input type="radio" id="server1"
+                             class="radio" name="ser" checked="checked">
+                      <i></i>
+                    </label>
+                    <span>激活</span>
+                  </div>
+                  <div class="item">
+                    <label for="server2">
+                      <input type="radio" id="server2"
+                             class="radio" name="ser">
+                      <i></i>
+                    </label>
+                    <span>关闭</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="btn">
+                <input type="button" value="立即提交"
+                       @click="submitSmsCode">
+                <input type="button" value="确定"
+                       @click="submitSmsCode">
+                <input type="button" value="取消"
+                       @click="closeCashOutSet"
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--服务商组-->
+    <div class="set-mask" v-show="cashOutSet">
+    <!--<div class="set-mask" v-show="true">-->
+      <div class="mask"></div>
+      <div class="modal">
+        <form action="#">
+          <div class="model-header">
+            <span>选择服务商组</span>
+            <i @click="facilitatorClose"></i>
+          </div>
+          <div class="model-content">
+            <div class="content">
+              <p>
+                当前选择：
+                <span>服务商组1</span>
+                <span>服务商数量10</span>
+              </p>
+
+              <div class="service-group">
+                <div class="item"
+                     v-for="(item, index) in facilitatorGroupData"
+                     :class="index === 0 ? 'active': ''"
+                >
+                  <label :for="index">
+                    <input type="radio" :id="index"
+                           class="radio" name="ser"
+                           :checked="index === 0 ? 'checked': ''">
                     <i></i>
                   </label>
-                  <span>是</span>
+                  <span>{{item.title}}</span>
+                  <div class="rate">
+                    <p>
+                      RMB兑入汇率：<span>{{item.RMBCashOut}}</span>
+                      RMB兑入汇率：<span>{{item.RMBCashOut}}</span>
+                    </p>
+                    <p>
+                      RMB兑入汇率：<span>{{item.RMCashOut}}</span>
+                      RMB兑入汇率：<span>{{item.RMCashOut}}</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="item">
-                  <label for="server2" @click="withoutSmsVerify">
-                    <input type="radio" id="server2"
-                           class="radio" name="ser">
-                    <i></i>
-                  </label>
-                  <span>否</span>
-                </div>
               </div>
 
-              <div class="verification-code">
-                <span>*接收验证码手机：</span>
-                <input type="text" v-model="mobile">
-
-                <input id="getCode" class="smsVerify"
-                       type="button" value="发送验证码"
-                       v-show="smsVerify">
-              </div>
-
-              <div class="mms-verification" v-show="smsVerify">
-                <span>*短信验证码：</span>
-                <input type="text" v-model="smsCode"
-                       placeholder="输入短信验证码">
-              </div>
               <div class="btn">
                 <input type="button" value="确定"
                        @click="submitSmsCode">
@@ -142,38 +212,50 @@
         <div class="order-state">
           <div class="state-header">
             <div class="header-btn"
-                 v-for="(item, index) in orderText" @click="orderTextTab(index)"
+                 v-for="(item, index) in orderText"
+                 @click="orderTextTab(index)"
                  :class="orderIndex === index ? 'active': ''">
               {{item}}
             </div>
-            <input class="add-introduce" type="button" value="添加介绍人">
+            <input class="add-introduce"
+                   @click="addIntroduceHandle"
+                   type="button"
+                   v-model="introduceOrBroker[orderIndex]"
+                   v-if="orderIndex !== 2">
           </div>
-          <div class="state">
-            <span>订单状态</span>
+          <div class="state" v-if="orderIndex !== 2">
+            <span>状态</span>
             <select>
               <option value="" style="display: none">所有状态</option>
-              <option value="done">已完成</option>
-              <option value="unpaid">待客户支付</option>
-              <option value="payable">待服务商收款</option>
-              <option value="uncollected">服务商未收款</option>
-              <option value="canceled">已取消</option>
+              <option value="active">激活</option>
+              <option value="close">关闭</option>
             </select>
-            <input type="text" placeholder="名称">
-            <input type="text" placeholder="电话">
+            <input type="text" v-for="(item, index) in statusText"
+                   v-if="orderIndex === index"
+                   :placeholder="item.val1">
+            <input type="text" v-for="(item, index) in statusText"
+                   v-if="orderIndex === index"
+                   :placeholder="item.val2">
             <input class="query" type="button" value="查询">
           </div>
         </div>
+        <!--当前服务商：-->
+        <div class="current-facilitator" v-if="orderIndex === 2">
+          <span>当前服务商：</span>
+          <input type="text" v-model="currentFacilitator">
+          <input type="button" value="修 改" @click="facilitatorFix">
+        </div>
 
         <!--表单数据-->
-        <div class="order-content">
+        <div class="order-content" v-show="orderIndex !== 2">
           <div class="layui-hide" id="demo" lay-filter="order">
           </div>
           <script type="text/html" id="barDemo">
             <a class="layui-btn layui-btn-primary layui-btn-xs"
-               lay-event="cash_out_detail">详情</a>
+               lay-event="users_detail">编辑</a>
             <a @click="lookLog"
                class="layui-btn layui-btn-primary layui-btn-xs"
-               lay-event="cash_out_log">日志</a>
+               lay-event="users_log">日志</a>
           </script>
         </div>
       </div>
@@ -185,6 +267,5 @@
 <script src="./js/users.js"></script>
 <script src="./js/read_cache.js"></script>
 <script src="./js/layui.js"></script>
-<script src="./js/cash_out_page.js"></script>
+<script src="./js/users_page.js"></script>
 <script src="./js/log_sub.js"></script>
-<script src="./js/sms_verify_code.js"></script>

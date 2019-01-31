@@ -1,6 +1,6 @@
 "use strict";
 
-/*代理商 账单管理*/
+/*代理商 介绍人编辑*/
 var app = new Vue({
   el: '#app',
   data: {
@@ -35,20 +35,31 @@ var app = new Vue({
     }],
     userName: '张三',
 
-    // 兑入订单
-    matchOrderFinishData: [{
-      title: '经纪商（user1）确认',
-      zfk: '2018.08.03',
-      hms: '14:20:20'
+    orderData: [{
+      key: "*商户名称：",
+      val: ""
     }, {
-      title: '服务商（user2）确认打款',
-      zfk: '2018.08.03',
-      hms: '14:20:20'
+      key: "*商户电话：",
+      val: ""
     }, {
-      title: '经纪商（user1）创建出金订单',
-      zfk: '2018.08.03',
-      hms: '14:20:20'
-    }],
-    finishIndex: 1 // 日志完成的步骤(从0开始)
-  }
+      key: "*商户编号：",
+      val: ""
+    }, {
+      key: "*加密KEY：",
+      val: ""
+    }, {
+      key: "允许调用的IP：",
+      val: ""
+    }, {
+      key: "回调地址：",
+      val: ""
+    }, {
+      key: "选择介绍人：",
+      val: ""
+    }, {
+      key: "备注：",
+      val: ""
+    }]
+  },
+  methods: {}
 });

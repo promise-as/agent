@@ -1,6 +1,6 @@
 "use strict";
 
-/*经纪商 兑出详情*/
+/*代理商 兑出详情*/
 var app = new Vue({
   el: '#app',
   data: {

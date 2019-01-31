@@ -1,6 +1,6 @@
 "use strict";
 
-/*经纪商 兑出*/
+/*代理商 兑出*/
 var app = new Vue({
   el: '#app',
   data: {
@@ -35,16 +35,30 @@ var app = new Vue({
     }],
     userName: '张三',
 
-    orderIndex: 0,
+    orderIndex: 2,
     orderText: ['介绍人管理', '经纪商管理', '服务商管理'],
 
-    // 兑出设置
-    cashOutSet: false,
-    mobile: 13809735212,
-    smsVerify: true,
-    smsCode: '', // 短信验证码
+    // 添加介绍人
+    addIntroducer: {
+      userName: '',
+      name: '',
+      phone: '',
+      procedureFee: ''
+    },
 
-    // 兑出订单
+    introduceOrBroker: ['添加介绍人', '添加经纪商', ''],
+
+    statusText: [{
+      val1: '名称',
+      val2: '电话'
+    }, {
+      val1: '介绍人',
+      val2: '商户名称'
+    }],
+
+    isShowAdd: false,
+
+    // 用户管理
     matchOrderFinishData: [{
       title: '经纪商（user1）确认',
       zfk: '2018.08.03',
@@ -58,15 +72,29 @@ var app = new Vue({
       zfk: '2018.08.03',
       hms: '14:20:20'
     }],
-    finishIndex: 1 // 日志完成的步骤(从0开始)
-  },
+    finishIndex: 1, // 日志完成的步骤(从0开始)
 
-  mounted: function mounted() {
-    var that = this;
-    if (typeof that.mobile === "number") {
-      that.mobile = that.mobile + '';
-    }
-    that.mobile = that.mobile.substr(0, 3) + '****' + that.mobile.substr(7, 11);
+    // 当前服务商
+    currentFacilitator: '服务商组1',
+
+    // 服务商组
+    cashOutSet: false,
+    setSucceed: false,
+
+    // 服务商组数据
+    facilitatorGroupData: [{
+      title: '服务商组1  服务商数量10',
+      RMBCashOut: '6.87',
+      RMCashOut: '6.62'
+    }, {
+      title: '服务商组2  服务商数量10',
+      RMBCashOut: '6.87',
+      RMCashOut: '6.62'
+    }, {
+      title: '服务商组3  服务商数量10',
+      RMBCashOut: '6.87',
+      RMCashOut: '6.62'
+    }]
   },
 
   methods: {
@@ -74,10 +102,12 @@ var app = new Vue({
       this.orderIndex = index;
     },
 
-    showCashOutSet: function showCashOutSet() {
-      this.cashOutSet = true;
+    addIntroduceHandle: function addIntroduceHandle() {
+      this.isShowAdd = true;
     },
     closeCashOutSet: function closeCashOutSet() {
+      this.isShowAdd = false;
+
       this.cashOutSet = false;
     },
 
@@ -91,14 +121,18 @@ var app = new Vue({
       }).then(function () {
         // always executed
       });
+      this.isShowAdd = false;
+
       this.cashOutSet = false;
+      this.setSucceed = true;
     },
 
-    needSmsVerify: function needSmsVerify() {
-      this.smsVerify = true;
+    facilitatorFix: function facilitatorFix() {
+      this.cashOutSet = true;
     },
-    withoutSmsVerify: function withoutSmsVerify() {
-      this.smsVerify = false;
+
+    facilitatorClose: function facilitatorClose() {
+      this.cashOutSet = false;
     }
   }
 });
